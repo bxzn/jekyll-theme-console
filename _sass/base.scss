@@ -132,8 +132,10 @@ pre { background-color: var(--background-color);  border: none;  padding: 0;  ma
 .highlight .vi { color: var(--code-color-7); } /* Name.Variable.Instance */
 .highlight .il { color: var(--code-color-14); } /* Literal.Number.Integer.Long */
 
-.center-image
-{
-  margin: 0 auto;
-  display: block;
-}
+.center-image { margin: 0 auto; display: block; }
+
+.no-js img.lazyload { display: none; }
+.blur-up { filter: blur(10px); transition: filter 400ms; }
+.blur-up.lazyloaded { filter: blur(0); }
+.fade-in { opacity: 0; transition: opacity 400ms; }
+.fade-in.lazyloaded { opacity: 1; }

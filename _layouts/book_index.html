@@ -5,8 +5,8 @@ layout: default
 {{ content }}
 {% assign contentwonl = content | strip_newlines %} {% unless contentwonl == ""  %} <br /> {% endunless %} <!-- add line break if there is any content -->
 
-{%- if site.posts.size > 0 -%}
 {% assign sorted-posts = site.posts | where: "categories","books" %}
+{%- if sorted-posts.size > 0 -%}
   <ul>
     {%- for post in sorted.posts -%}
     <li>

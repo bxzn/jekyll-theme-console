@@ -5,7 +5,7 @@ layout: default
 {{ content }}
 {% assign contentwonl = content | strip_newlines %} {% unless contentwonl == ""  %} <br /> {% endunless %} <!-- add line break if there is any content -->
 
-{% assign sorted-posts = site.posts | where: "categories","books" %}
+<!-- {% assign sorted-posts = site.posts | where: "categories","books" %}
 {%- if sorted-posts.size > 0 -%}
   <ul>
     {%- for post in sorted.posts -%}
@@ -15,4 +15,15 @@ layout: default
     </li>
     {%- endfor -%}
   </ul>
-{%- endif -%}
+{%- endif -%} -->
+
+<ul>
+  {% for post in site.categories.books %}
+    {% if post.url %}
+      <li>
+        {%- assign date_format = "%Y-%m-%d" -%}
+        [ {{ post.date | date: date_format }} ] <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

@@ -3,12 +3,10 @@ layout: default
 ---
 
 {{ content }}
-{% for category in site.categories.books %}
+{% for post in site.categories.books %}
   <ul>
-    {% for post in category %}
-      {% if post.url %}
-      <li>{{post.date | date_to_string}} | <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
-      {% endif %}
-    {% endfor %}
+    {% if post.url %}
+    <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
+    {% endif %}
   </ul>
 {% endfor %}
